@@ -1,15 +1,7 @@
-import express, { type Request, type Response } from 'express'
-import morgan from 'morgan'
+import app from './app.ts'
+import env from './env.ts'
 
-export const app = express()
-const PORT = 3000
-
-app.use(morgan('dev'))
-
-app.get('/health', (req: Request, res: Response) => {
-  res.send('ok')
-})
-
+const { PORT } = env
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
 
 export default app
